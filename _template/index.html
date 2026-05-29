@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bedrijfsnaam — Slogan in één zin</title>
+  <meta name="description" content="Korte omschrijving van het bedrijf en wat het aanbiedt.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Header / navigatie ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="logo">Bedrijfsnaam</a>
+
+      <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="primary-nav">
+        <a href="#diensten">Diensten</a>
+        <a href="#over">Over ons</a>
+        <a href="#waarom">Waarom wij</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Welkom bij Bedrijfsnaam</p>
+        <h1>Een krachtige kop die meteen duidelijk maakt wat je doet</h1>
+        <p class="hero-sub">
+          Eén of twee zinnen die de belangrijkste belofte uitleggen. Wat lever je,
+          voor wie, en waarom zijn klanten daar blij mee.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Neem contact op</a>
+          <a href="#diensten" class="btn btn-ghost">Bekijk diensten</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Diensten ===== -->
+    <section class="section" id="diensten">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Wat we doen</p>
+          <h2>Onze diensten</h2>
+          <p class="section-intro">Een korte introductie op het aanbod.</p>
+        </header>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-icon">①</div>
+            <h3>Dienst één</h3>
+            <p>Korte uitleg van deze dienst en wat de klant eraan heeft.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">②</div>
+            <h3>Dienst twee</h3>
+            <p>Korte uitleg van deze dienst en wat de klant eraan heeft.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">③</div>
+            <h3>Dienst drie</h3>
+            <p>Korte uitleg van deze dienst en wat de klant eraan heeft.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Over ons ===== -->
+    <section class="section section-alt" id="over">
+      <div class="container split">
+        <div class="split-media" aria-hidden="true">
+          <!-- Vervang door <img src="assets/foto.jpg" alt="..."> -->
+          <div class="media-placeholder">Foto / sfeerbeeld</div>
+        </div>
+        <div class="split-text">
+          <p class="eyebrow">Over ons</p>
+          <h2>Een betrouwbare partner met jaren ervaring</h2>
+          <p>
+            Vertel hier het verhaal van het bedrijf: wie je bent, waar je voor
+            staat en wat je onderscheidt. Houd het persoonlijk en concreet.
+          </p>
+          <ul class="check-list">
+            <li>Jarenlange ervaring in de branche</li>
+            <li>Persoonlijke aanpak en korte lijnen</li>
+            <li>Eerlijk advies, geen verrassingen</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Waarom wij / USP's ===== -->
+    <section class="section" id="waarom">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Waarom wij</p>
+          <h2>Wat klanten waarderen</h2>
+        </header>
+
+        <div class="grid grid-3">
+          <div class="usp">
+            <strong>15+</strong>
+            <span>jaar ervaring</span>
+          </div>
+          <div class="usp">
+            <strong>500+</strong>
+            <span>tevreden klanten</span>
+          </div>
+          <div class="usp">
+            <strong>4,9★</strong>
+            <span>gemiddelde beoordeling</span>
+          </div>
+        </div>
+
+        <blockquote class="quote">
+          “Een korte, krachtige review van een tevreden klant die het verhaal
+          geloofwaardig maakt.”
+          <cite>— Naam klant</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== Contact / CTA ===== -->
+    <section class="section section-cta" id="contact">
+      <div class="container cta-inner">
+        <h2>Klaar om kennis te maken?</h2>
+        <p>Neem vrijblijvend contact op — we denken graag met je mee.</p>
+        <div class="contact-details">
+          <a href="tel:+31000000000" class="btn btn-primary">Bel: 00 - 000 00 00</a>
+          <a href="mailto:info@bedrijfsnaam.nl" class="btn btn-ghost">info@bedrijfsnaam.nl</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Bedrijfsnaam</span>
+      <span>Adresregel · Plaats · KvK 00000000</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
