@@ -1,0 +1,381 @@
+/* =========================================================
+   Ovaa Motors — donker & sportief, geel accent
+   Pas deze variabelen aan om de huisstijl te wijzigen.
+   ========================================================= */
+:root {
+  --color-accent:       #ffd400;   /* geel uit het logo */
+  --color-accent-dark:  #e6be00;
+  --color-ink:          #f3f5f7;   /* lichte tekst op donker */
+  --color-muted:        #9aa3ad;   /* secundaire tekst */
+  --color-bg:           #14171c;   /* donkere basis */
+  --color-bg-alt:       #1c2128;   /* afwisselende sectie */
+  --color-bg-elev:      #232932;   /* kaarten / verhoogd */
+  --color-border:       #2e353f;
+
+  --font-base: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --font-head: var(--font-base);
+
+  --radius: 14px;
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  --container: 1140px;
+  --space: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+/* =========================================================
+   Reset / basis
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.1;
+  margin: 0 0 .5em;
+  letter-spacing: -0.015em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+h1 { font-size: clamp(2.3rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1rem; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.2rem, 4vw, 2rem);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  margin: 0 0 .7rem;
+}
+
+/* =========================================================
+   Knoppen
+   ========================================================= */
+.btn {
+  display: inline-block;
+  padding: .9rem 1.7rem;
+  border-radius: 6px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  font-size: .92rem;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease, color .15s ease;
+  border: 2px solid transparent;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #14171c;
+  box-shadow: 0 10px 24px rgba(255, 212, 0, 0.22);
+}
+.btn-primary:hover { background: var(--color-accent-dark); }
+
+.btn-ghost {
+  border-color: var(--color-border);
+  color: var(--color-ink);
+}
+.btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+/* =========================================================
+   Header / navigatie
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(20, 23, 28, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+}
+.logo {
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+}
+.logo span { color: var(--color-ink); margin-left: .25em; }
+
+.nav { display: flex; align-items: center; gap: 1.7rem; }
+.nav a { font-weight: 600; color: var(--color-muted); transition: color .15s; }
+.nav a:hover { color: var(--color-ink); }
+.nav .nav-cta {
+  background: var(--color-accent);
+  color: #14171c;
+  padding: .55rem 1.1rem;
+  border-radius: 6px;
+  font-weight: 800;
+}
+.nav .nav-cta:hover { background: var(--color-accent-dark); color: #14171c; }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none; border: 0; cursor: pointer; padding: 8px;
+}
+.nav-toggle span {
+  width: 26px; height: 2px;
+  background: var(--color-ink);
+  transition: transform .25s, opacity .25s;
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(1000px 480px at 78% -10%, rgba(255, 212, 0, 0.12), transparent 60%),
+    linear-gradient(180deg, #181c22, var(--color-bg));
+  padding-block: clamp(4rem, 10vw, 8rem);
+  border-bottom: 1px solid var(--color-border);
+}
+.hero-inner { max-width: 800px; }
+.hero-sub { font-size: 1.2rem; color: var(--color-muted); max-width: 60ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.8rem; }
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  list-style: none; padding: 0; margin: 2rem 0 0;
+}
+.hero-badges li {
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .45rem .9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-ink);
+  background: rgba(255,255,255,.02);
+}
+
+/* =========================================================
+   Merken-strip
+   ========================================================= */
+.brands {
+  background: var(--color-accent);
+  color: #14171c;
+  padding-block: 1.6rem;
+}
+.brands .container { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 2rem; }
+.brands-label {
+  margin: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .8rem;
+}
+.brand-list {
+  display: flex; flex-wrap: wrap; gap: 1.2rem 2.2rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.brand-list li {
+  font-weight: 900;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+/* =========================================================
+   Secties
+   ========================================================= */
+.section { padding-block: var(--space); }
+.section-alt { background: var(--color-bg-alt); }
+
+.section-head { max-width: 680px; margin: 0 auto 3rem; text-align: center; }
+.section-intro { color: var(--color-muted); font-size: 1.08rem; }
+
+/* =========================================================
+   Grids & kaarten
+   ========================================================= */
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem 1.7rem;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow);
+}
+.card-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 212, 0, 0.14);
+  color: var(--color-accent);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.card h3 { margin-bottom: .4rem; }
+.card p { color: var(--color-muted); margin: 0; }
+
+/* Diensten als strakke lijst-tegels */
+.service {
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
+  font-weight: 600;
+}
+.service-note { text-align: center; color: var(--color-muted); margin-top: 1.8rem; }
+
+/* =========================================================
+   Split (KTM-blok)
+   ========================================================= */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.ktm-block { background: linear-gradient(180deg, var(--color-bg), #1a1e24); }
+.ktm-eyebrow { color: #ff6600; }
+.media-placeholder {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255,102,0,.25), rgba(255,212,0,.08));
+  display: grid; place-items: center;
+  color: var(--color-ink);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  border: 1px solid var(--color-border);
+}
+.check-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.check-list li { position: relative; padding-left: 1.9rem; margin-bottom: .65rem; color: var(--color-ink); }
+.check-list li::before {
+  content: "✓";
+  position: absolute; left: 0;
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+/* =========================================================
+   Occasions CTA
+   ========================================================= */
+.cta-inner { max-width: 660px; margin-inline: auto; text-align: center; }
+.cta-inner p { color: var(--color-muted); }
+.cta-inner .btn { margin-top: 1rem; }
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  gap: 1.6rem;
+}
+.contact-col {
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+}
+.contact-col h3 { color: var(--color-accent); margin-bottom: 1rem; }
+.contact-col a { color: var(--color-ink); border-bottom: 1px solid transparent; transition: border-color .15s; }
+.contact-col a:hover { border-color: var(--color-accent); }
+
+.hours { width: 100%; border-collapse: collapse; }
+.hours th, .hours td { text-align: left; padding: .45rem 0; border-bottom: 1px solid var(--color-border); }
+.hours th { font-weight: 600; color: var(--color-muted); }
+.hours td { text-align: right; font-weight: 700; }
+.hours tr:last-child th, .hours tr:last-child td { border-bottom: 0; }
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  border: 0;
+  border-radius: 10px;
+  filter: grayscale(0.2) contrast(1.05);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: 1.7rem;
+  font-size: .9rem;
+  color: var(--color-muted);
+  background: #0f1216;
+}
+.footer-inner { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 920px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .split-media { order: -1; }
+}
+
+@media (max-width: 720px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+
+  .nav-toggle { display: flex; }
+  .nav {
+    position: absolute;
+    top: 70px; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: .5rem 1.2rem 1.2rem;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+  .nav.is-open { display: flex; }
+  .nav a { padding: .9rem 0; border-bottom: 1px solid var(--color-border); }
+  .nav .nav-cta { text-align: center; margin-top: .8rem; border-bottom: 0; }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
