@@ -1,18 +1,25 @@
 # Ovaa Motors — verbeterde versie
 
 Strakke, donker/sportieve one-pager als alternatief voor de huidige ovaamotors.nl.
-Losse HTML/CSS — open `index.html` in de browser om te bekijken.
+**Eén standalone HTML-bestand** (`index.html`) — CSS en JS staan inline, geen
+losse bestanden of dependencies. Open `index.html` in de browser om te bekijken.
 
-**Bron:** opgebouwd op basis van 7 screenshots (de live site was niet automatisch
-op te halen). Alle teksten, diensten en contactgegevens komen daaruit.
+**Bron:** opgebouwd met de geverifieerde gegevens aangeleverd door de klant.
 
-## Nog te controleren / aanvullen
-- **Openingstijden wo–za**: niet zichtbaar op de screenshots. Nu ingevuld als
-  aanname (di–vr 8.45–17.30, za 9.00–16.00). Zie `<!-- CONTROLEREN -->` in
-  `index.html`. Ma = op afspraak, zo = gesloten zijn wel bevestigd.
-- **Merklogo's & foto's**: nu tekst-badges en placeholders. Echte logo's/foto's
-  in `assets/` zetten en de placeholders in `index.html` vervangen.
-- **Facebook-URL**: staat nu op `facebook.com/ovaamotors` — controleer of dit de
-  juiste pagina-URL is.
+## Inhoud (geverifieerd)
+- Tagline: "Dé motorfiets specialist van Zeeland", sinds 1978.
+- Merken: Suzuki, Yamaha, KTM, Husqvarna, GASGAS (straat & off-road waar van toepassing).
+- Diensten: Werkplaats, Bandenservice, Financiering, Verlengde garantie,
+  Suzuki Motorverzekering, Combi Motors Verzekeringen, Parts Finder, Motorverhuur.
+- Occasions: demo motoren, straatmotoren, off-road.
+- Openingstijden incl. koopavond donderdag (19.30–21.00), za 9.00–15.00, zo gesloten.
+- Evenement-banner: KTM Testdag Straat — 20 juni 2026.
+- Contact: Mercuriusweg 1, 4382 NC Vlissingen · +31 (0)118 461485 · info@ovaamotors.nl.
+- Facebook: https://www.facebook.com/OvaaMotors/
+- Footer-credit: "Website door DRIVE".
+
+## Nog aan te vullen
+- **Merklogo's & motorfoto's**: nu tekst-badges en placeholders. Echte beelden in
+  `assets/` zetten en de placeholders/badges in `index.html` vervangen.
 - **Google Maps**: de kaart in de contactsectie laadt extern (Google). Wil je
   alles 100% offline, vervang de `<iframe>` door een gewone "Bekijk op kaart"-link.

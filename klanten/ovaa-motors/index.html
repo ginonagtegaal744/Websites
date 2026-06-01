@@ -3,11 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ovaa Motors — Dé motorspecialist van Zeeland sinds 1978</title>
-  <meta name="description" content="Ovaa Motors in Vlissingen: dealer van Suzuki, Yamaha, KTM, Husqvarna en GASGAS. Nieuwe en gebruikte motoren, onderhoud, verzekeringen, financiering en verhuur. Ruim 40 jaar ervaring.">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Ovaa Motors — Dé motorfiets specialist van Zeeland sinds 1978</title>
+  <meta name="description" content="Ovaa Motors in Vlissingen: dealer van Suzuki, Yamaha, KTM, Husqvarna en GASGAS. Nieuwe en gebruikte motoren, werkplaats, verzekeringen, financiering en verhuur. Ruim 40 jaar ervaring.">
+
+  <style>
+    /* =========================================================
+       Ovaa Motors — donker & sportief, geel accent
+       ========================================================= */
+    :root {
+      --color-accent:       #ffd400;
+      --color-accent-dark:  #e6be00;
+      --color-orange:       #ff6600;
+      --color-ink:          #f3f5f7;
+      --color-muted:        #9aa3ad;
+      --color-bg:           #14171c;
+      --color-bg-alt:       #1c2128;
+      --color-bg-elev:      #232932;
+      --color-border:       #2e353f;
+      --font-base: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      --radius: 14px;
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+      --container: 1140px;
+      --space: clamp(3.5rem, 8vw, 6.5rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-base);
+      color: var(--color-ink);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3 {
+      line-height: 1.1;
+      margin: 0 0 .5em;
+      letter-spacing: -0.015em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    h1 { font-size: clamp(2.3rem, 6vw, 4rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); }
+    h3 { font-size: 1.2rem; }
+    p { margin: 0 0 1rem; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: clamp(1.2rem, 4vw, 2rem);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      margin: 0 0 .7rem;
+    }
+
+    /* Knoppen */
+    .btn {
+      display: inline-block;
+      padding: .9rem 1.7rem;
+      border-radius: 6px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      font-size: .92rem;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease, color .15s ease;
+      border: 2px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--color-accent);
+      color: #14171c;
+      box-shadow: 0 10px 24px rgba(255, 212, 0, 0.22);
+    }
+    .btn-primary:hover { background: var(--color-accent-dark); }
+    .btn-ghost { border-color: var(--color-border); color: var(--color-ink); }
+    .btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* Evenement-banner */
+    .event-bar {
+      background: var(--color-orange);
+      color: #14171c;
+      text-align: center;
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .6rem 1rem;
+    }
+    .event-bar a { text-decoration: underline; font-weight: 800; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(20, 23, 28, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 70px;
+    }
+    .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -0.02em; color: var(--color-accent); }
+    .logo span { color: var(--color-ink); margin-left: .25em; }
+
+    .nav { display: flex; align-items: center; gap: 1.7rem; }
+    .nav a { font-weight: 600; color: var(--color-muted); transition: color .15s; }
+    .nav a:hover { color: var(--color-ink); }
+    .nav .nav-cta {
+      background: var(--color-accent); color: #14171c;
+      padding: .55rem 1.1rem; border-radius: 6px; font-weight: 800;
+    }
+    .nav .nav-cta:hover { background: var(--color-accent-dark); color: #14171c; }
+
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: 0; cursor: pointer; padding: 8px;
+    }
+    .nav-toggle span { width: 26px; height: 2px; background: var(--color-ink); transition: transform .25s, opacity .25s; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(1000px 480px at 78% -10%, rgba(255, 212, 0, 0.12), transparent 60%),
+        linear-gradient(180deg, #181c22, var(--color-bg));
+      padding-block: clamp(4rem, 10vw, 8rem);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .hero-inner { max-width: 820px; }
+    .hero-sub { font-size: 1.2rem; color: var(--color-muted); max-width: 60ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.8rem; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; margin: 2rem 0 0; }
+    .hero-badges li {
+      font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+      padding: .45rem .9rem; border: 1px solid var(--color-border); border-radius: 999px;
+      color: var(--color-ink); background: rgba(255,255,255,.02);
+    }
+
+    /* Merken-strip */
+    .brands { background: var(--color-accent); color: #14171c; padding-block: 1.6rem; }
+    .brands .container { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 2rem; }
+    .brands-label { margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
+    .brand-list { display: flex; flex-wrap: wrap; gap: 1rem 2rem; list-style: none; margin: 0; padding: 0; }
+    .brand-list li { font-weight: 900; font-size: 1.15rem; text-transform: uppercase; letter-spacing: .02em; display: flex; align-items: baseline; gap: .4rem; }
+    .brand-list .afd { font-size: .62rem; font-weight: 700; letter-spacing: .06em; background: #14171c; color: var(--color-accent); padding: .12rem .4rem; border-radius: 4px; }
+
+    /* Secties */
+    .section { padding-block: var(--space); }
+    .section-alt { background: var(--color-bg-alt); }
+    .section-head { max-width: 700px; margin: 0 auto 3rem; text-align: center; }
+    .section-intro { color: var(--color-muted); font-size: 1.08rem; }
+
+    /* Grids & kaarten */
+    .grid { display: grid; gap: 1.4rem; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: var(--color-bg-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 2rem 1.7rem;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--color-accent); box-shadow: var(--shadow); }
+    .card-icon {
+      display: inline-grid; place-items: center; width: 52px; height: 52px;
+      border-radius: 12px; background: rgba(255, 212, 0, 0.14); color: var(--color-accent);
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+    .card h3 { margin-bottom: .4rem; }
+    .card p { color: var(--color-muted); margin: 0; }
+
+    .service {
+      background: var(--color-bg-elev); border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent); border-radius: 8px;
+      padding: 1.1rem 1.3rem; font-weight: 600;
+    }
+    .service-note { text-align: center; color: var(--color-muted); margin-top: 1.8rem; }
+
+    /* Split (KTM-blok) */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .ktm-block { background: linear-gradient(180deg, var(--color-bg), #1a1e24); }
+    .ktm-eyebrow { color: var(--color-orange); }
+    .media-placeholder {
+      aspect-ratio: 4 / 3; border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,102,0,.25), rgba(255,212,0,.08));
+      display: grid; place-items: center; color: var(--color-ink); font-weight: 800;
+      text-transform: uppercase; letter-spacing: .04em; border: 1px solid var(--color-border);
+      text-align: center; padding: 1rem;
+    }
+    .check-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+    .check-list li { position: relative; padding-left: 1.9rem; margin-bottom: .65rem; color: var(--color-ink); }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--color-accent); font-weight: 900; }
+
+    /* Occasions */
+    .occ-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 2rem; }
+    .occ {
+      background: var(--color-bg-elev); border: 1px solid var(--color-border);
+      border-radius: var(--radius); padding: 1.8rem; text-align: center;
+    }
+    .occ .occ-ico { font-size: 1.8rem; }
+    .occ h3 { margin: .6rem 0 .3rem; }
+    .occ p { color: var(--color-muted); margin: 0; }
+    .cta-inner { max-width: 680px; margin-inline: auto; text-align: center; }
+    .cta-inner > p { color: var(--color-muted); }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 1.6rem; }
+    .contact-col {
+      background: var(--color-bg-elev); border: 1px solid var(--color-border);
+      border-radius: var(--radius); padding: 1.8rem;
+    }
+    .contact-col h3 { color: var(--color-accent); margin-bottom: 1rem; }
+    .contact-col a { color: var(--color-ink); border-bottom: 1px solid transparent; transition: border-color .15s; }
+    .contact-col a:hover { border-color: var(--color-accent); }
+
+    .hours { width: 100%; border-collapse: collapse; }
+    .hours th, .hours td { text-align: left; padding: .45rem 0; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+    .hours th { font-weight: 600; color: var(--color-muted); white-space: nowrap; }
+    .hours td { text-align: right; font-weight: 700; }
+    .hours .note { display: block; font-size: .76rem; color: var(--color-orange); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .hours tr:last-child th, .hours tr:last-child td { border-bottom: 0; }
+
+    .contact-map iframe {
+      width: 100%; height: 100%; min-height: 260px; border: 0; border-radius: 10px;
+      filter: grayscale(0.2) contrast(1.05);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--color-border); padding-block: 1.7rem;
+      font-size: .9rem; color: var(--color-muted); background: #0f1216;
+    }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; align-items: center; }
+    .footer-inner a { color: var(--color-accent); }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .grid-3, .occ-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .split-media { order: -1; }
+    }
+    @media (max-width: 720px) {
+      .grid-3, .grid-2, .occ-grid { grid-template-columns: 1fr; }
+      .nav-toggle { display: flex; }
+      .nav {
+        position: absolute; top: 70px; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--color-bg); border-bottom: 1px solid var(--color-border);
+        padding: .5rem 1.2rem 1.2rem; box-shadow: var(--shadow); display: none;
+      }
+      .nav.is-open { display: flex; }
+      .nav a { padding: .9rem 0; border-bottom: 1px solid var(--color-border); }
+      .nav .nav-cta { text-align: center; margin-top: .8rem; border-bottom: 0; }
+      .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+      .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ===== Evenement-banner ===== -->
+  <div class="event-bar">
+    🏁 KTM Testdag Straat — 20 juni 2026 ·
+    <a href="tel:+31118461485">Reserveer je plek: 0118 - 461485</a>
+  </div>
 
   <!-- ===== Header / navigatie ===== -->
   <header class="site-header" id="top">
@@ -34,7 +309,7 @@
     <section class="hero">
       <div class="container hero-inner">
         <p class="eyebrow">Vlissingen · sinds 1978</p>
-        <h1>Dé motorspecialist van Zeeland</h1>
+        <h1>Dé motorfiets specialist van Zeeland</h1>
         <p class="hero-sub">
           Nieuwe en gebruikte motoren, een eigen werkplaats en deskundig personeel
           met passie voor motoren. Officieel dealer van Suzuki, Yamaha, KTM,
@@ -57,11 +332,11 @@
       <div class="container">
         <p class="brands-label">Officieel dealer van</p>
         <ul class="brand-list">
-          <li>Suzuki</li>
+          <li>Suzuki <span class="afd">straat &amp; off-road</span></li>
           <li>Yamaha</li>
-          <li>KTM</li>
-          <li>Husqvarna</li>
-          <li>GASGAS</li>
+          <li>KTM <span class="afd">straat &amp; off-road</span></li>
+          <li>Husqvarna <span class="afd">straat &amp; off-road</span></li>
+          <li>GASGAS <span class="afd">straat &amp; off-road</span></li>
         </ul>
       </div>
     </section>
@@ -81,23 +356,23 @@
         <div class="grid grid-3">
           <article class="card">
             <div class="card-icon">★</div>
-            <h3>40+ jaar ervaring</h3>
-            <p>Sinds 1978 dé vertrouwde motorspecialist van Zeeland, met deskundig personeel dat leeft voor motoren.</p>
+            <h3>Dealer van 5 topmerken</h3>
+            <p>Dealer van Suzuki, Yamaha, KTM, Husqvarna en GASGAS — voor zowel straat als off-road.</p>
           </article>
           <article class="card">
             <div class="card-icon">🏍</div>
             <h3>Nieuw &amp; gebruikt</h3>
-            <p>Nieuwe en gebruikte motoren van topmerken, plus een ruime voorraad onderdelen, accessoires en toebehoren.</p>
+            <p>Nieuwe en gebruikte motoren, plus een ruime voorraad onderdelen, accessoires en toebehoren.</p>
           </article>
           <article class="card">
             <div class="card-icon">🔧</div>
             <h3>Eigen werkplaats</h3>
-            <p>Onderhoud, schadeherstel en complete revisies door gecertificeerde monteurs.</p>
+            <p>Onderhoud, schadeherstel en complete revisies door deskundig personeel met passie voor motoren.</p>
           </article>
           <article class="card">
             <div class="card-icon">🛡</div>
             <h3>Compleet ontzorgd</h3>
-            <p>Verzekeringen, verlengde garantie en financiering — alles in één keer geregeld.</p>
+            <p>Complete service: verzekeringen, verlengde garantie en financieringen — alles in één keer geregeld.</p>
           </article>
           <article class="card">
             <div class="card-icon">🔑</div>
@@ -123,13 +398,13 @@
         </header>
 
         <div class="grid grid-2">
-          <div class="service">Onderhoud, herstelwerkzaamheden en reparatie</div>
+          <div class="service">Werkplaats</div>
           <div class="service">Bandenservice</div>
-          <div class="service">Inkoop van uw eigen motor</div>
-          <div class="service">Financieringen</div>
-          <div class="service">Verlengde garantie bij aankoop</div>
-          <div class="service">Motorverzekeringen voor elk merk</div>
-          <div class="service">Motorverzekeringen speciaal voor Suzuki-rijders</div>
+          <div class="service">Financiering</div>
+          <div class="service">Verlengde garantie</div>
+          <div class="service">Suzuki Motorverzekering</div>
+          <div class="service">Combi Motors Verzekeringen</div>
+          <div class="service">Parts Finder</div>
           <div class="service">Motorverhuur</div>
         </div>
         <p class="service-note">Neem gerust contact met ons op voor meer info of andere wensen!</p>
@@ -140,20 +415,20 @@
     <section class="section ktm-block" id="ktm">
       <div class="container split">
         <div class="split-text">
-          <p class="eyebrow ktm-eyebrow">KTM Authorized Dealer · sinds 2023</p>
+          <p class="eyebrow ktm-eyebrow">KTM Authorized Dealer</p>
           <h2>KTM full range dealer voor Zeeland</h2>
-          <p>Of je nu op zoek bent naar street of off-road: bij Ovaa Motors vind je de nieuwste KTM-modellen, gebruikte motoren en demomodellen.</p>
+          <p>Of je nu op zoek bent naar straat of off-road: bij Ovaa Motors vind je de nieuwste KTM-modellen, gebruikte motoren en demomodellen.</p>
           <ul class="check-list">
-            <li>Nieuwste KTM-modellen op voorraad &amp; demomotoren</li>
-            <li>KTM originele Powerparts &amp; Powerwear</li>
-            <li>KTM-gecertificeerd personeel &amp; Mobility service</li>
+            <li>Nieuwste KTM-modellen &amp; demomotoren</li>
+            <li>KTM straat- én off-road afdeling</li>
+            <li>Deskundig personeel met passie voor motoren</li>
             <li>KTM verlengde garantie</li>
-            <li>Service op de Zeeuwse wedstrijden</li>
+            <li>KTM Testdag Straat op 20 juni 2026</li>
           </ul>
         </div>
         <div class="split-media" aria-hidden="true">
           <!-- Vervang door <img src="assets/ktm.jpg" alt="KTM bij Ovaa Motors"> -->
-          <div class="media-placeholder">KTM street &amp; off-road</div>
+          <div class="media-placeholder">KTM straat &amp; off-road</div>
         </div>
       </div>
     </section>
@@ -161,10 +436,15 @@
     <!-- ===== Occasions ===== -->
     <section class="section section-alt" id="occasions">
       <div class="container cta-inner">
-        <p class="eyebrow">Tweedehands</p>
-        <h2>Occasion van de week</h2>
-        <p>Bekijk ons actuele aanbod gebruikte motoren en de occasion van de week op onze Facebookpagina — wekelijks nieuwe aanbiedingen.</p>
-        <a href="https://www.facebook.com/ovaamotors" class="btn btn-primary" target="_blank" rel="noopener">Bekijk occasions op Facebook</a>
+        <p class="eyebrow">Tweedehands &amp; demo</p>
+        <h2>Occasions</h2>
+        <div class="occ-grid">
+          <div class="occ"><div class="occ-ico">🏷</div><h3>Demo motoren</h3><p>Scherp geprijsde demomodellen met lage kilometerstand.</p></div>
+          <div class="occ"><div class="occ-ico">🏍</div><h3>Straatmotoren</h3><p>Gebruikte straatmotoren van topmerken, vakkundig nagekeken.</p></div>
+          <div class="occ"><div class="occ-ico">🌲</div><h3>Off-road</h3><p>Crossers en enduro's voor het echte terreinwerk.</p></div>
+        </div>
+        <p>Bekijk ons actuele aanbod en de occasion van de week op onze Facebookpagina — wekelijks nieuwe aanbiedingen.</p>
+        <a href="https://www.facebook.com/OvaaMotors/" class="btn btn-primary" target="_blank" rel="noopener">Bekijk occasions op Facebook</a>
       </div>
     </section>
 
@@ -184,24 +464,23 @@
               4382 NC Vlissingen
             </p>
             <p>
-              <a href="tel:+31118461485">Tel: +31 (0)118 - 461485</a><br>
+              <a href="tel:+31118461485">Tel: +31 (0)118 461485</a><br>
               <a href="mailto:info@ovaamotors.nl">info@ovaamotors.nl</a>
             </p>
             <p>
-              <a href="https://www.facebook.com/ovaamotors" target="_blank" rel="noopener">Facebook: Ovaa Motors</a>
+              <a href="https://www.facebook.com/OvaaMotors/" target="_blank" rel="noopener">Facebook: Ovaa Motors</a>
             </p>
           </div>
 
           <div class="contact-col">
             <h3>Openingstijden</h3>
-            <!-- CONTROLEREN: alleen ma/di/zo stonden op de screenshots; wo–za is een aanname -->
             <table class="hours">
               <tr><th>Maandag</th><td>Op afspraak</td></tr>
               <tr><th>Dinsdag</th><td>8.45 – 17.30</td></tr>
               <tr><th>Woensdag</th><td>8.45 – 17.30</td></tr>
-              <tr><th>Donderdag</th><td>8.45 – 17.30</td></tr>
+              <tr><th>Donderdag</th><td>8.45 – 17.30<span class="note">Koopavond 19.30 – 21.00</span></td></tr>
               <tr><th>Vrijdag</th><td>8.45 – 17.30</td></tr>
-              <tr><th>Zaterdag</th><td>9.00 – 16.00</td></tr>
+              <tr><th>Zaterdag</th><td>9.00 – 15.00</td></tr>
               <tr><th>Zondag</th><td>Gesloten</td></tr>
             </table>
           </div>
@@ -210,7 +489,7 @@
             <h3>Route</h3>
             <iframe
               title="Ovaa Motors op de kaart"
-              src="https://www.google.com/maps?q=Mercuriusweg+1,+4382+NC+Vlissingen&output=embed"
+              src="https://www.google.com/maps?q=Ovaa+Motors,+Mercuriusweg+1,+4382+NC+Vlissingen&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
@@ -223,11 +502,31 @@
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span>© <span id="year"></span> Ovaa Motors · Dé motorspecialist van Zeeland</span>
-      <span>Mercuriusweg 1 · 4382 NC Vlissingen · 0118 - 461485</span>
+      <span>© <span id="year"></span> Ovaa Motors · Dé motorfiets specialist van Zeeland</span>
+      <span>Website door DRIVE</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var toggle = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("primary-nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", function () {
+          var isOpen = nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        });
+        nav.addEventListener("click", function (e) {
+          if (e.target.tagName === "A" && nav.classList.contains("is-open")) {
+            nav.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+      var year = document.getElementById("year");
+      if (year) { year.textContent = String(new Date().getFullYear()); }
+    })();
+  </script>
 </body>
 </html>
